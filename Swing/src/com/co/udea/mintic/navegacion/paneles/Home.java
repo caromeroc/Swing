@@ -12,6 +12,7 @@ public class Home extends javax.swing.JFrame {
 
     Reto1 pnlReto1 = new Reto1();
     Figura pnlFigura = new Figura();
+    Calculadora pnlCalc = new Calculadora();
 
     public Home() {
         initComponents();
@@ -29,6 +30,7 @@ public class Home extends javax.swing.JFrame {
         pnlBotones = new javax.swing.JPanel();
         btnIraReto1 = new javax.swing.JButton();
         btnIraFigura = new javax.swing.JButton();
+        btnCalculadora = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(700, 400));
@@ -47,6 +49,13 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnCalculadora.setText("Calculadora");
+        btnCalculadora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculadoraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -54,9 +63,11 @@ public class Home extends javax.swing.JFrame {
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(btnIraReto1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                .addGap(61, 61, 61)
                 .addComponent(btnIraFigura)
-                .addGap(136, 136, 136))
+                .addGap(56, 56, 56)
+                .addComponent(btnCalculadora)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,7 +75,8 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIraReto1)
-                    .addComponent(btnIraFigura))
+                    .addComponent(btnIraFigura)
+                    .addComponent(btnCalculadora))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -75,7 +87,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(pnlBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,6 +106,7 @@ public class Home extends javax.swing.JFrame {
         this.add(pnlReto1);
         pnlReto1.setVisible(Boolean.TRUE);
         pnlFigura.setVisible(Boolean.FALSE);
+        pnlCalc.setVisible(Boolean.FALSE);
         this.validate();
         this.repaint();
 
@@ -105,9 +118,22 @@ public class Home extends javax.swing.JFrame {
         this.add(pnlFigura);
         pnlFigura.setVisible(Boolean.TRUE);
         pnlReto1.setVisible(Boolean.FALSE);
+        pnlCalc.setVisible(Boolean.FALSE);
         this.validate();
         this.repaint();
     }//GEN-LAST:event_btnIraFiguraActionPerformed
+
+    private void btnCalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculadoraActionPerformed
+
+        pnlCalc.setBounds(50, 100, 500, 500);
+        this.add(pnlCalc);
+        pnlCalc.setVisible(Boolean.TRUE);
+        pnlReto1.setVisible(Boolean.FALSE);
+        pnlFigura.setVisible(Boolean.FALSE);
+        this.validate();
+        this.repaint();
+
+    }//GEN-LAST:event_btnCalculadoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +171,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalculadora;
     private javax.swing.JButton btnIraFigura;
     private javax.swing.JButton btnIraReto1;
     private javax.swing.JPanel pnlBotones;
