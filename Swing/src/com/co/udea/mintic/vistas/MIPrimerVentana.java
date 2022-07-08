@@ -3,6 +3,8 @@ package com.co.udea.mintic.vistas;
 import com.co.udea.mintic.model.Reto1;
 import java.awt.Color;
 import java.util.Arrays;
+import javax.swing.table.DefaultTableModel;
+
 
 public class MIPrimerVentana extends javax.swing.JFrame {
 
@@ -32,12 +34,13 @@ public class MIPrimerVentana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UDEA");
+        setMinimumSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHolaMundo.setText("Hola Mundo!");
         lblHolaMundo.setToolTipText("Desde la GUI");
         lblHolaMundo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(lblHolaMundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        getContentPane().add(lblHolaMundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
         pnlPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Panel 1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(204, 0, 0))); // NOI18N
 
@@ -68,11 +71,11 @@ public class MIPrimerVentana extends javax.swing.JFrame {
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 400, 130));
+        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 400, 130));
 
         lblTextoReto1.setText("El resultado es :");
-        getContentPane().add(lblTextoReto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
-        getContentPane().add(lblResultadoReto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 230, 20));
+        getContentPane().add(lblTextoReto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        getContentPane().add(lblResultadoReto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 230, 20));
 
         btnProcesar.setText("Procesar");
         btnProcesar.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +83,7 @@ public class MIPrimerVentana extends javax.swing.JFrame {
                 btnProcesarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
+        getContentPane().add(btnProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +91,7 @@ public class MIPrimerVentana extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,7 +105,7 @@ public class MIPrimerVentana extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 470, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 470, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -117,11 +120,14 @@ public class MIPrimerVentana extends javax.swing.JFrame {
 
     private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
         
-        int [] compra1 = {2700, 9500, 300, 15000, 1800, 10000, 400, 3000, 400};
+        int [] compra1 = {2700, 9500, 300, 15000, 1800, 10000, 400, 3000, 400};     
+        Reto1 objReto1 = new Reto1();     
+        lblResultadoReto1.setText(Arrays.toString(objReto1.procesar(compra1)));  
+        String[] columnNames = {"Dato", "Valor"};
+        String[][] data = {{"Suma",String.valueOf(objReto1.procesar(compra1)[0])},{"Maximo",String.valueOf(objReto1.procesar(compra1)[1])},{"Minimo",String.valueOf(objReto1.procesar(compra1)[2])}};
         
-        Reto1 objReto1 = new Reto1();
-       
-        lblResultadoReto1.setText(Arrays.toString(objReto1.procesar(compra1)));
+        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        jTable1.setModel(model);
         
     }//GEN-LAST:event_btnProcesarActionPerformed
 
