@@ -47,5 +47,8 @@ public class Circulo extends Figura {
         this.radio = radio;
     }
 
-}
+    public String mensaje() {
+        return "Hola desde la Libreria";
+    }
 
+}

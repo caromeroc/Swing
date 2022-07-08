@@ -37,6 +37,7 @@ public class Figura extends javax.swing.JPanel {
         lblResultArea = new javax.swing.JLabel();
         lblResultPerimetro = new javax.swing.JLabel();
         btnProcesarCirculo = new javax.swing.JButton();
+        lblMensajeLib = new javax.swing.JLabel();
         pnlCuadrado = new javax.swing.JPanel();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -77,8 +78,10 @@ public class Figura extends javax.swing.JPanel {
                         .addGroup(pnlCirculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtRadio, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(lblResultArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                .addComponent(btnProcesarCirculo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlCirculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnProcesarCirculo)
+                    .addComponent(lblMensajeLib, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnlCirculoLayout.setVerticalGroup(
@@ -95,10 +98,14 @@ public class Figura extends javax.swing.JPanel {
                             .addComponent(lblResultArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(btnProcesarCirculo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlCirculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPerimetro)
-                    .addComponent(lblResultPerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGroup(pnlCirculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCirculoLayout.createSequentialGroup()
+                        .addGroup(pnlCirculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPerimetro)
+                            .addComponent(lblResultPerimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(lblMensajeLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pnlCuadrado.setBorder(javax.swing.BorderFactory.createTitledBorder("Cuadrado"));
@@ -131,7 +138,7 @@ public class Figura extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(pnlCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 8, Short.MAX_VALUE)))
+                        .addGap(0, 20, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -143,7 +150,7 @@ public class Figura extends javax.swing.JPanel {
                 .addComponent(pnlCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pnlCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -154,12 +161,14 @@ public class Figura extends javax.swing.JPanel {
         lblResultArea.setText(String.valueOf(objCir.calcularArea(null, null, dato)));
         lblResultPerimetro.setText(String.valueOf(objCir.calcularPerimetro(null, null, dato)));
 
+        lblMensajeLib.setText(objCir.mensaje());
     }//GEN-LAST:event_btnProcesarCirculoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcesarCirculo;
     private javax.swing.JLabel lblArea;
+    private javax.swing.JLabel lblMensajeLib;
     private javax.swing.JLabel lblPerimetro;
     private javax.swing.JLabel lblRadio;
     private javax.swing.JLabel lblResultArea;
